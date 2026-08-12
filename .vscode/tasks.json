@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "build",
+            "command": "g++",
+            "args": [
+                "-ggdb",
+                "-pedantic-errors",
+                "-Wall",
+                "-Wextra",
+                "-std=c++23",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-Weffc++",
+                "-Wconversion",
+                "-Wsign-conversion",
+                "-I./source/includes",
+                "${fileDirname}/*.cpp",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "build release",
+            "command": "g++",
+            "args": [
+                "-O2",
+                "-DNDEBUG",
+                "-pedantic-errors",
+                "-Wall",
+                "-Wextra",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-Weffc++",
+                "-Wconversion",
+                "-Wsign-conversion",
+            ],
+            "group": "build"
+        }
+    ]
+}
