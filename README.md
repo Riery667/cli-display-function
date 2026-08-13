@@ -9,6 +9,8 @@ could be constant, linear or quadratic!
 exemple:
 constant function f(x) = c
 
+
+array = []
 y = 3
 
             Y
@@ -16,5 +18,5 @@ y = 3
 ************|***************
             |
             |
----------------------------X
+-------------122--------------X
             0
