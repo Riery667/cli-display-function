@@ -1,6 +1,8 @@
-#ifndef DRAW_CARTESIAN_PLAN
-#define DRAW_CARTESIAN_PLAN
+#include "ordered_pair.h"
+#include <array>
 #include <iostream>
 #include <vector>
-void draw_cartesian_plan();
+#ifndef DRAW_CARTESIAN_PLAN
+#define DRAW_CARTESIAN_PLAN
+std::array<std::array<char, 21>, 11> draw_cartesian_plan(std::vector<ordered_pair> point);
 #endif
