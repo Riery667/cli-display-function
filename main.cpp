@@ -9,8 +9,8 @@ int main()
     // choose_function();
     // input_params();
 
-    ordered_pair point1{2, 3};
-    ordered_pair point2{2, 3};
+    ordered_pair point1{1, 3};
+    ordered_pair point2{-1, 2};
 
     std::vector<ordered_pair> pointers{point1, point2};
 
