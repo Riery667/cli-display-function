@@ -3,19 +3,50 @@
 #include <iostream>
 #include <vector>
 
+std::vector<ordered_pair> const_function()
+{
+    int c{0};
+    std::vector<ordered_pair> im{};
+    std::cout << "f(x) = c\nChoose the c value.\n";
+    std::cin >> c;
+    // assuming the lengh of x in the graphic
+    for (int i{-10}; i < 30; ++i)
+
+        im.push_back(ordered_pair(i, c));
+    return im;
+}
+
 int main()
 {
     // wellcome_txt();
-    // choose_function();
-    // input_params();
+    bool running{true};
 
-    ordered_pair point1{1, 3};
-    ordered_pair point2{-1, 2};
+    std::cout << "Wellcome to the Console Display Function!\nCreate by: @Wired_Arka\n";
+    std::cin.get();
 
-    std::vector<ordered_pair> pointers{point1, point2};
+    while (running)
+    {
+        std::vector<ordered_pair> im{};
+        int choose{0};
+        std::cout << "Choose a function below using numbers.\n";
+        std::cout << "0 - constant function.\n1 - linear_function\n2 - quadratic_function\n";
+        std::cin >> choose;
 
-    draw_cartesian_plan(pointers);
+        switch (choose)
+        {
+            case 0:
+                im = const_function();
+                break;
+            case 1:
+                // im = linear_function() break;
+            case 3:
+                // im = quadratic_function() break;
+            default:
+                im = const_function();
+        }
 
-    // choose_function_or_params(); <--- could be a conditional?
+        draw_cartesian_plan(im);
+    }
+
     return 0;
 }

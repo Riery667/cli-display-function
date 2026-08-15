@@ -5,14 +5,14 @@
 
 // How i'll resolve the cartesian plan with origin? I thought that I could
 //  This function will draw in the terminal the caracters.
-std::array<std::array<char, 25>, 11> draw_cartesian_plan(std::vector<ordered_pair> point)
+std::array<std::array<char, 25>, 25> draw_cartesian_plan(std::vector<ordered_pair> points)
 {
     // The use of the array was becasue my grid will have fixed lenght.
     // But this might be a error, because if I wanna zoom in the cartesian?
     // Each i is a column, and the j is the line.
     // i = Column
     // j = line
-    std::array<std::array<char, 25>, 11> grid{};
+    std::array<std::array<char, 25>, 25> grid{};
 
     int x_origin{grid.size() / 2};
     int y_origin{grid[0].size() / 2};
@@ -55,10 +55,26 @@ std::array<std::array<char, 25>, 11> draw_cartesian_plan(std::vector<ordered_pai
 
     // print out the points in graph
     // grid[x][y] = *
-    for (int i{0}; i < point.size(); ++i)
+    std::cout << std::endl << points.size() << std::endl;
+    std::cout << std::endl << grid.size() << std::endl;
+    std::cout << std::endl << grid[0].size() << std::endl;
+    for (int i{0}; i < points.size(); ++i)
     {
 
-        grid[x_origin - point[i].x][y_origin + (point[i].y)] = '*';
+        // todo: do not undested this line very well.
+        int x_value{x_origin + 1 - points[i].x};
+        int y_value{y_origin + 1 - (points[i].y)};
+
+        if ((x_value || y_value) < 0 || x_value > grid.size() || y_value > grid[0].size())
+        {
+            continue;
+        }
+        // else if (i == 0)
+        //     grid[y_value][x_value] = '0';
+        // else if (i == points.size())
+        //     grid[y_value][x_value] = 'U';
+        // else
+        grid[y_value][x_value] = '*';
 
         // if (y_origin + point[i].y > grid.size() / 2)
 
